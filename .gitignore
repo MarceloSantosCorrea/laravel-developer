@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /vendor
+/storage/*.key
 .idea
 .env
 .env.backup
