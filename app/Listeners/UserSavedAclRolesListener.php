@@ -40,10 +40,8 @@ class UserSavedAclRolesListener
                             'user_id'     => $event->user->id,
                         ]);
                     }
-
                 }
             }
-
         }
     }
 }
