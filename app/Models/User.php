@@ -21,10 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password', 'avatar', 'is_admin', 'language', 'is_active', 'notes',
-        'phone_number', 'mobile_number', 'last_login', 'email_verified', 'mobile_verified_at', 'currency', 'zipcode',
-        'city', 'state', 'country', 'address_number', 'neighborhood', 'street_address', 'vat_number', 'company_name',
-        'type_person', 'birth', 'user_id',
+        'firstname', 'lastname', 'email', 'password', 'avatar', 'is_admin', 'language', 'is_active', 'email_verified',
+        'mobile_verified_at', 'user_id',
     ];
 
     /**
@@ -42,17 +40,15 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-        'email_verified_at'  => 'datetime',
-        'mobile_verified_at' => 'datetime',
-        'created_at'         => 'datetime',
-        'updated_at'         => 'datetime',
-        'deleted_at'         => 'datetime',
-        'birth'              => 'date',
-        'is_admin'           => 'boolean',
-        'is_active'          => 'boolean',
+        'email_verified_at' => 'datetime',
+        'created_at'        => 'datetime',
+        'updated_at'        => 'datetime',
+        'deleted_at'        => 'datetime',
+        'is_admin'          => 'boolean',
+        'is_active'         => 'boolean',
     ];
 
-    protected $appends = ['name'];
+    protected $appends = ['name', 'avatar_url'];
 
     protected $softDeleteColumns = ['email'];
 
@@ -62,6 +58,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getNameAttribute()
     {
         return trim(sprintf('%s %s', $this->firstname, $this->lastname));
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return url($this->avatar);
     }
 
     /**

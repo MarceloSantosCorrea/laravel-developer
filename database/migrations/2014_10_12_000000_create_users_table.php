@@ -25,23 +25,6 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(false);
             $table->string('language')->default('en');
             $table->boolean('is_active')->default(true);
-            $table->longText('notes')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->string('mobile_number')->nullable();
-            $table->timestamp('last_login_at')->nullable();
-            $table->timestamp('mobile_verified_at')->nullable();
-            $table->string('currency')->nullable();
-            $table->string('zipcode')->nullable();
-            $table->string('city')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
-            $table->string('address_number')->nullable();
-            $table->string('neighborhood')->nullable();
-            $table->string('street_address')->nullable();
-            $table->string('vat_number')->nullable();
-            $table->string('company_name')->nullable();
-            $table->string('type_person')->nullable();
-            $table->date('birth')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
