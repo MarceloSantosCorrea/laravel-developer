@@ -17,8 +17,15 @@ class AclRoleUser extends Model
      * @return User|\Illuminate\Database\Eloquent\Model
      * @throws \Exception
      */
-    public static function createCustom(Array $data)
+    public static function createCustom(array $data)
     {
+        $data = [
+            'user_id'     => (isset($data['user_id'])) ? $data['user_id'] : User::where('uid',
+                $data['user_uid'])->first()->id,
+            'acl_role_id' => (isset($data['acl_role_id'])) ? $data['acl_role_id'] : AclRole::where('uid',
+                $data['acl_role_uid'])->first()->id,
+        ];
+
         try {
             \DB::beginTransaction();
 
@@ -41,7 +48,7 @@ class AclRoleUser extends Model
      * @return \Illuminate\Database\Eloquent\Model
      * @throws \Exception
      */
-    public static function updateCustom(Array $data, \Illuminate\Database\Eloquent\Model $model)
+    public static function updateCustom(array $data, \Illuminate\Database\Eloquent\Model $model)
     {
         try {
             \DB::beginTransaction();

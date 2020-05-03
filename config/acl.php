@@ -7,22 +7,28 @@ return [
     'permissions' => [
         ['name' => 'list_acl_roles', 'label' => 'Listar Perfis'],
         ['name' => 'store_acl_roles', 'label' => 'Criar Perfis'],
-        ['name' => 'update_acl_roles', 'label' => 'Editar Perfis'],
         ['name' => 'show_acl_roles', 'label' => 'Visualizar Perfis'],
+        ['name' => 'update_acl_roles', 'label' => 'Editar Perfis'],
         ['name' => 'destroy_acl_roles', 'label' => 'Deletar Perfis'],
 
         ['name' => 'list_acl_permissions', 'label' => 'Listar Permissões'],
         ['name' => 'store_acl_permissions', 'label' => 'Criar Permissões'],
-        ['name' => 'update_acl_permissions', 'label' => 'Editar Permissões'],
         ['name' => 'show_acl_permissions', 'label' => 'Visualizar Permissões'],
+        ['name' => 'update_acl_permissions', 'label' => 'Editar Permissões'],
         ['name' => 'destroy_acl_permissions', 'label' => 'Deletar Permissões'],
 
         ['name' => 'home', 'label' => 'Home'],
         ['name' => 'list_users', 'label' => 'Listar Usuários'],
         ['name' => 'store_users', 'label' => 'Criar Usuários'],
-        ['name' => 'update_users', 'label' => 'Editar Usuários'],
         ['name' => 'show_users', 'label' => 'Visualizar Usuários'],
+        ['name' => 'update_users', 'label' => 'Editar Usuários'],
         ['name' => 'destroy_users', 'label' => 'Deletar Usuários'],
+
+        ['name' => 'list_user_acl_roles', 'label' => 'Listar Perfis de Usuários'],
+        ['name' => 'store_user_acl_roles', 'label' => 'Criar Perfis de Usuários'],
+        ['name' => 'show_user_acl_roles', 'label' => 'Editar Perfis de Usuários'],
+        ['name' => 'update_user_acl_roles', 'label' => 'Visualizar Perfis de Usuários'],
+        ['name' => 'destroy_user_acl_roles', 'label' => 'Deletar Perfis de Usuários'],
 
         ['name' => 'list_product_categories', 'label' => 'Listar Categorias de Produtos'],
         ['name' => 'store_product_categories', 'label' => 'Criar Categoria de Produtos'],

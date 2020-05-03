@@ -50,8 +50,6 @@ class AclRoleController extends Controller
         try {
             return AclRole::where('uid', $uid)->with('aclPermissions')->firstOrFail();
         } catch (\Exception $e) {
-
-            dd($e->getMessage());
             return response()->json(['message' => 'Acl Role not found'], 404);
         }
     }

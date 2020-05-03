@@ -40,6 +40,20 @@ Route::group([
             ->name('destroy')->middleware('can:destroy_acl_roles');
     });
 
+    Route::group(['prefix' => 'user-acl-roles', 'as' => 'user-acl.roles.'], function () {
+        $controller = 'UserAclRoleController';
+        Route::get('/', "{$controller}@index")
+            ->name('index')->middleware('can:list_user_acl_roles');
+        Route::post('/', "{$controller}@store")
+            ->name('store')->middleware('can:store_user_acl_roles');
+        Route::get('{uid}', "{$controller}@show")
+            ->name('show')->middleware('can:show_user_acl_roles');
+        Route::match(['put', 'patch'], '{uid}', "{$controller}@update")
+            ->name('update')->middleware('can:update_user_acl_roles');
+        Route::delete('{uid}', "{$controller}@destroy")
+            ->name('destroy')->middleware('can:destroy_user_acl_roles');
+    });
+
     Route::group(['prefix' => 'acl-permissions', 'as' => 'acl.permissions.'], function () {
         $controller = 'AclPermissionController';
         Route::get('/', "{$controller}@index")
